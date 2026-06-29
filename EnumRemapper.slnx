@@ -1,0 +1,6 @@
+﻿<Solution>
+  <Project Path="EnumRemapping.Runtime.csproj" />
+  <Project Path="EnumRemapping.Editor.csproj" />
+  <Project Path="Assembly-CSharp-Editor.csproj" />
+  <Project Path="Assembly-CSharp.csproj" />
+</Solution>

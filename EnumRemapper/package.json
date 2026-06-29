@@ -1,0 +1,16 @@
+{
+  "name": "com.knty.enum-remapper",
+  "displayName": "Enum Remapper",
+  "version": "1.0.0",
+  "unity": "6000.0",
+  "description": "Automatically remaps serialized enum values when enum definitions change.",
+  "keywords": [
+    "enum",
+    "unity",
+    "editor",
+    "migration"
+  ],
+  "author": {
+    "name": "KNTy"
+  }
+}

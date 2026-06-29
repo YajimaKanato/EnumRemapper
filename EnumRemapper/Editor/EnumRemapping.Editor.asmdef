@@ -1,0 +1,18 @@
+{
+    "name": "EnumRemapping.Editor",
+    "rootNamespace": "EnumRemapping.Editor",
+    "references": [
+        "GUID:90c576a8b2f072e4db86398aa5b434ab"
+    ],
+    "includePlatforms": [
+        "Editor"
+    ],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": false,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

@@ -1,6 +1,6 @@
 {
   "dependencies": {
-    "com.knty.enum-remapper": {
+    "com.knty1018.enum-remapper": {
       "version": "file:../EnumRemapper",
       "depth": 0,
       "source": "local",

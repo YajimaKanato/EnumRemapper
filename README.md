@@ -5,13 +5,24 @@ https://github.com/YajimaKanato/EnumRemapper.git?path=/EnumRemapper
 を張り付け
 
 ## 使い方
-enumの定義をするときに[Enum]をつけるだけです
+enumの定義をするときに[EnumRemap]をつけるだけです
+```C#
+[EnumRemap]
+public enum Test
+{
+	Idle,
+	Move,
+	Attack,
+	Jump
+}
+```
 
 ## EnumRemappingでできること
 enumに要素を追加した際に、Inspectorで変更前に選択していた要素を保持することができる
 ### 具体例
 以下のようにenumを定義します
 ``` C#
+[EnumRemap]
 public enum Test
 {
 	Idle,
@@ -25,6 +36,7 @@ Inspectorからこのenumをフィールドに定義しているところで "Id
 
 以下のようにenumに要素を追加します
 ``` C#
+[EnumRemap]
 public enum Test
 {
 	Die,		// 追加
@@ -34,7 +46,7 @@ public enum Test
 	Jump
 }
 ```
-本来であればInspectorを見た時に、Idleに設定していたところがDieに変わっていますが、 __Idleの設定状態を維持することができます__ 
+このとき、本来であればInspector上でIdleに設定していたところがDieに変わっていますが、 __Idleの設定状態を維持することができます__ 
 
 ## 注意点
 現在はプロトタイプレベルの実装になるため、ScriptableObjectにしか対応できません

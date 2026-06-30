@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3e8077f059d906c4fb0b1264fe5dad66, type: 3}
+  m_Name: TestSO
+  m_EditorClassIdentifier: Assembly-CSharp::TestSO
+  _test: 0
+  _testArray: 0000000002000000
+  _testList: 0000000002000000
+  _class:
+    _nestTest: 0
+  _subClassArray:
+  - _nestTest: 0
+  - _nestTest: 2
+  _subClassList:
+  - _nestTest: 0
+  - _nestTest: 2

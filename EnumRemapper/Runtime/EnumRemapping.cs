@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace EnumRemapping
+namespace EnumRemapper.Runtime
 {
     /// <summary>enumのRemap処理を持つクラス</summary>
     public static class EnumRemapping

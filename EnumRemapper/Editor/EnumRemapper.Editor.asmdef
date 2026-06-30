@@ -1,6 +1,6 @@
 {
-    "name": "EnumRemapping.Editor",
-    "rootNamespace": "EnumRemapping.Editor",
+    "name": "EnumRemapper.Editor",
+    "rootNamespace": "EnumRemapper.Editor",
     "references": [
         "GUID:90c576a8b2f072e4db86398aa5b434ab"
     ],

@@ -1,6 +1,6 @@
 {
-    "name": "EnumRemapping.Runtime",
-    "rootNamespace": "EnumRemapping.Runtime",
+    "name": "EnumRemapper.Runtime",
+    "rootNamespace": "EnumRemapper.Runtime",
     "references": [],
     "includePlatforms": [],
     "excludePlatforms": [],

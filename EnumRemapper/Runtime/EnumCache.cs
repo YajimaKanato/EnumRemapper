@@ -1,7 +1,7 @@
 using System;
 using System.Collections.Generic;
 
-namespace EnumRemapping
+namespace EnumRemapper.Runtime
 {
     /// <summary>enumの情報を集めたクラス</summary>
     [Serializable]

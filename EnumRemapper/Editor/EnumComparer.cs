@@ -1,8 +1,9 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using EnumRemapper.Runtime;
 
-namespace EnumRemapping
+namespace EnumRemapper.Editor
 {
     /// <summary>変更されたenumがあるかどうかを判定するクラス</summary>
     public static class EnumComparer

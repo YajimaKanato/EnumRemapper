@@ -1,7 +1,7 @@
 using System;
 using System.Reflection;
 
-namespace EnumRemapping
+namespace EnumRemapper.Editor
 {
     /// <summary>SerializedPropertyから実際の型を取得する処理を持つクラス</summary>
     public static class PropertyTypeResolver

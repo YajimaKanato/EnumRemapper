@@ -3,7 +3,7 @@ using System.IO;
 using System.Linq;
 using UnityEngine;
 
-namespace EnumRemapping
+namespace EnumRemapper.Runtime
 {
     /// <summary>enumのキャッシュに関する処理を持つクラス</summary>
     public static class EnumCacheUtility
@@ -25,7 +25,7 @@ namespace EnumRemapping
             var enumTypes = AppDomain.CurrentDomain
                 .GetAssemblies()
                 .SelectMany(a => a.GetTypes())
-                .Where(t => t.IsEnum && t.IsDefined(typeof(EnumRemappingAttribute), false));
+                .Where(t => t.IsEnum && t.IsDefined(typeof(EnumRemapAttribute), false));
 
             // 集めたenumの情報をキャッシュに登録
             foreach (var type in enumTypes)

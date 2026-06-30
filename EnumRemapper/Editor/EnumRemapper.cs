@@ -1,11 +1,12 @@
 using System;
 using UnityEditor;
 using UnityEngine;
+using EnumRemapper.Runtime;
 
-namespace EnumRemapping
+namespace EnumRemapper.Editor
 {
     /// <summary>EnumRemappingの実行処理を持つクラス</summary>
-    public static class EnumRemappingRunner
+    public static class EnumRemapper
     {
         /// <summary>
         /// 初期化時に呼ばれるメソッド

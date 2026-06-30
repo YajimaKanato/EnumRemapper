@@ -1,9 +1,9 @@
 using System;
 
-namespace EnumRemapping
+namespace EnumRemapper.Runtime
 {
     /// <summary>EnumRemappingに必要な属性クラス</summary>
-    public class EnumRemappingAttribute : Attribute
+    public class EnumRemapAttribute : Attribute
     {
 
     }

@@ -2,8 +2,9 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEditor;
+using EnumRemapper.Runtime;
 
-namespace EnumRemapping
+namespace EnumRemapper.Editor
 {
     /// <summary>アセットの更新処理を持つクラス</summary>
     public static class AssetUpdater

@@ -33,7 +33,8 @@ namespace EnumRemapper.Editor
                     continue;
 
                 // enumの定義が変わっていた場合はコレクションに追加
-                if (!oldInfo.Names.SequenceEqual(cache.Names))
+                if (!oldInfo.Enums.Select(members => (members.Name, members.Value))
+                    .SequenceEqual(cache.Enums.Select(members => (members.Name, members.Value))))
                 {
                     changed.Add(cache.FullName);
                 }

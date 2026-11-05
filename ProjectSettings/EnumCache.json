@@ -1,12 +1,42 @@
 {
+    "Version": 1,
     "Enums": [
         {
             "FullName": "TestEnum",
-            "Names": [
-                "Idle",
-                "Attack",
-                "Move",
-                "Jump"
+            "Enums": [
+                {
+                    "Name": "Idle",
+                    "Value": 0
+                },
+                {
+                    "Name": "Attack",
+                    "Value": 1
+                },
+                {
+                    "Name": "Move",
+                    "Value": 2
+                },
+                {
+                    "Name": "Jump",
+                    "Value": 3
+                }
+            ]
+        },
+        {
+            "FullName": "TestEnum2",
+            "Enums": [
+                {
+                    "Name": "Dead",
+                    "Value": 0
+                },
+                {
+                    "Name": "Idle",
+                    "Value": 10
+                },
+                {
+                    "Name": "Move",
+                    "Value": 20
+                }
             ]
         }
     ]

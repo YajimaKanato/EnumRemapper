@@ -30,9 +30,9 @@ namespace EnumRemapper.Editor
             // 現在のenumの情報を新規キャッシュとして作成
             EnumCache newCache = EnumCacheUtility.CreateCurrentCache();
 
-            if (cache.Enums.Count == 0)
+            if (cache.Version == 0)
             {
-                // 古いキャッシュが存在しなければ新しいキャッシュを保存して終了
+                // 旧形式、またはキャッシュ未作成なら、現在の定義を基準にする
                 EnumCacheUtility.Save(newCache);
                 return;
             }
@@ -41,7 +41,15 @@ namespace EnumRemapper.Editor
             var changedEnums = EnumComparer.GetChangedEnums(cache, newCache);
 
             // 変更されたenumがなければ終了
-            if (changedEnums.Count == 0) return;
+            if (changedEnums.Count == 0)
+            {
+                var hasNewEnum = newCache.Enums.Exists(current => cache.Get(current.FullName) == null);
+
+                // 未登録の enum があれば、現在の定義を保存する
+                if (hasNewEnum)
+                    EnumCacheUtility.Save(newCache);
+                return;
+            }
 
             try
             {

@@ -18,7 +18,10 @@ namespace EnumRemapper.Runtime
         public static EnumCache CreateCurrentCache()
         {
             // enumの情報を集めるクラスを作成
-            EnumCache cache = new();
+            EnumCache cache = new()
+            {
+                Version = EnumCache.CurrentVersion
+            };
 
             // 現在実行中のアプリケーションからAssemblyを取得
             // EnumRemapping属性がついたenumを集める
@@ -33,7 +36,13 @@ namespace EnumRemapper.Runtime
                 cache.Enums.Add(new EnumInfo
                 {
                     FullName = type.FullName,
-                    Names = Enum.GetNames(type).ToList()
+                    Enums = Enum.GetNames(type)
+                    .Zip(Enum.GetValues(type) as int[]
+                    , (name, value) => new EnumMemberInfo
+                    {
+                        Name = name,
+                        Value = value
+                    }).ToList()
                 });
             }
 

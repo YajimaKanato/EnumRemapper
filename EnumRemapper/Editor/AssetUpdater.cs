@@ -72,25 +72,21 @@ namespace EnumRemapper.Editor
                 if (!changedEnums.Contains(enumType.FullName))
                     continue;
 
-                // 変更前のenumの定義を取得
-                List<string> oldInfo = oldCache.Get(enumType.FullName)?.Names;
+                // 保存されている数値に合致するenumを取り出す
+                var oldMember = oldCache.Get(enumType.FullName)?.Enums?
+                    .Find(member => member.Value == iterator.intValue);
 
-                // 現在のenumの定義を取得
-                string[] newNames = Enum.GetNames(enumType);
+                // 該当するものがなければスルー
+                if (oldMember == null || !Enum.IsDefined(enumType, oldMember.Name))
+                    continue;
 
-                // 現在アセットに保存されているenumのインデックス
-                int oldIndex = iterator.intValue;
-
-                // 名前から新しいインデックスに変換
-                int newIndex = EnumRemapping.ConvertIndex(
-                    oldInfo,
-                    newNames.ToList(),
-                    oldIndex);
+                // 新しいenumの値を取得
+                var newValue = Convert.ToInt32(Enum.Parse(enumType, oldMember.Name));
 
                 // インデックスが変わる場合のみ更新
-                if (newIndex != iterator.intValue)
+                if (newValue != iterator.intValue)
                 {
-                    iterator.intValue = newIndex;
+                    iterator.intValue = newValue;
                     changed = true;
                 }
             }

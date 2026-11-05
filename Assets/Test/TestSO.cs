@@ -17,4 +17,6 @@ public class TestSO : ScriptableObject
     {
         [SerializeField] TestEnum _nestTest;
     }
+
+    [SerializeField] TestEnum2 _testEnum2;
 }

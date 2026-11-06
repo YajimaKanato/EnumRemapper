@@ -26,15 +26,15 @@
             "FullName": "TestEnum2",
             "Enums": [
                 {
-                    "Name": "Dead",
-                    "Value": 0
+                    "Name": "Ready",
+                    "Value": 1
                 },
                 {
-                    "Name": "Idle",
-                    "Value": 10
+                    "Name": "Waiting",
+                    "Value": 2
                 },
                 {
-                    "Name": "Move",
+                    "Name": "Running",
                     "Value": 20
                 }
             ]

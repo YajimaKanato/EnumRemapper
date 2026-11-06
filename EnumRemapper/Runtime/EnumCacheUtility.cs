@@ -33,6 +33,10 @@ namespace EnumRemapper.Runtime
             // 集めたenumの情報をキャッシュに登録
             foreach (var type in enumTypes)
             {
+                // int型以外のenumはスルー
+                if (Enum.GetUnderlyingType(type) != typeof(int))
+                    continue;
+
                 cache.Enums.Add(new EnumInfo
                 {
                     FullName = type.FullName,

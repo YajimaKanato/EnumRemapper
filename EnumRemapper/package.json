@@ -3,7 +3,7 @@
   "displayName": "Enum Remapper",
   "version": "1.0.0",
   "unity": "6000.0",
-  "description": "Automatically remaps serialized enum values when enum definitions change.",
+  "description": "Preserves selected enum members in ScriptableObject assets when their serialized values change.",
   "keywords": [
     "enum",
     "unity",

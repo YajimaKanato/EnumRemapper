@@ -1,7 +1,7 @@
 using System;
 using System.Collections.Generic;
-using System.Linq;
 using UnityEditor;
+using UnityEngine;
 using EnumRemapper.Runtime;
 
 namespace EnumRemapper.Editor
@@ -16,17 +16,14 @@ namespace EnumRemapper.Editor
         /// <param name="changedEnums">変更があったenumの集合</param>
         public static void Update(EnumCache oldCache, HashSet<string> changedEnums)
         {
-            // すべてのアセットを取得
-            // パスを変更することで探索範囲を制限できる
-            string[] guids = AssetDatabase.FindAssets("");
+            // プロジェクトの Assets 配下を走査する
+            string[] guids = AssetDatabase.FindAssets("", new[] { "Assets" });
 
             foreach (string guid in guids)
             {
                 // パスからアセットを取得
                 string path = AssetDatabase.GUIDToAssetPath(guid);
-                UnityEngine.Object obj = AssetDatabase.LoadMainAssetAtPath(path);
-
-                if (obj == null)
+                if (AssetDatabase.LoadMainAssetAtPath(path) is not ScriptableObject obj)
                     continue;
                 // アセットに更新処理を実行
                 UpdateObject(obj, oldCache, changedEnums);
@@ -72,9 +69,26 @@ namespace EnumRemapper.Editor
                 if (!changedEnums.Contains(enumType.FullName))
                     continue;
 
+                // 古い値に該当するenumをすべて取得
+                var oldValue = iterator.intValue;
+                var oldMembers = oldCache.Get(enumType.FullName)?.Enums;
+                var matches = oldMembers?.FindAll(member => member.Value == oldValue);
+
+                // 古い値に該当するenumがなければスルー
+                if (matches == null || matches.Count == 0) continue;
+
+                // 古い値に該当するenumが重複したらスルー
+                if (matches.Count > 1)
+                {
+                    Debug.LogWarning(
+                        $"Enum Remapper: {enumType.FullName} の旧値 {oldValue} に複数の名前があるため、" +
+                        $"{iterator.propertyPath} の移行をスキップしました。",
+                        obj);
+                    continue;
+                }
+
                 // 保存されている数値に合致するenumを取り出す
-                var oldMember = oldCache.Get(enumType.FullName)?.Enums?
-                    .Find(member => member.Value == iterator.intValue);
+                var oldMember = matches[0];
 
                 // 該当するものがなければスルー
                 if (oldMember == null || !Enum.IsDefined(enumType, oldMember.Name))

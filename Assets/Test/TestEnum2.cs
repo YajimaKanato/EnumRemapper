@@ -3,7 +3,7 @@ using EnumRemapper.Runtime;
 [EnumRemap]
 public enum TestEnum2
 {
-    Dead,
-    Move = 20,
-    Idle = 10,
+    Ready = 1,
+    Waiting = 2,
+    Running = 20
 }

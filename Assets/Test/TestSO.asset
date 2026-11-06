@@ -23,4 +23,6 @@ MonoBehaviour:
   _subClassList:
   - _nestTest: 0
   - _nestTest: 2
-  _testEnum2: 10
+  _unique: 20
+  _duplicate: 1
+  _testByteEnum: 1

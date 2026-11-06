@@ -18,5 +18,7 @@ public class TestSO : ScriptableObject
         [SerializeField] TestEnum _nestTest;
     }
 
-    [SerializeField] TestEnum2 _testEnum2;
+    [SerializeField] TestEnum2 _unique;
+    [SerializeField] TestEnum2 _duplicate;
+    [SerializeField] TestByteEnum _testByteEnum;
 }
